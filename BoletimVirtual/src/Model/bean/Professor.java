@@ -11,22 +11,32 @@ package Model.bean;
  */
 public class Professor extends Pessoa {
     //atributos
-    private String titulacao, disciplina;
+    private int matricula;
+    private String titulacao;
+
     
     //construtor padrão
     public Professor(){
         super();
         titulacao = "";
-        disciplina = "";
+       
     }
 
     //construtor padrão
     public Professor(String titulacao, String disciplina) {
         this.titulacao = titulacao;
-        this.disciplina = disciplina;
+        
     }
     
     //getters e setters
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
 
     public String getTitulacao() {
         return titulacao;
@@ -36,19 +46,14 @@ public class Professor extends Pessoa {
         this.titulacao = titulacao;
     }
 
-    public String getDisciplina() {
-        return disciplina;
-    }
 
-    public void setDisciplina(String disciplina) {
-        this.disciplina = disciplina;
-    }
+  
     
     //Métodos
     public void Imprimir(){
         super.Imprimir();
         System.out.println(titulacao);
-        System.out.println(disciplina);
+      
     }
     
     
