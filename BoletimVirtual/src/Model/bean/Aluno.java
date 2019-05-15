@@ -4,9 +4,9 @@ package Model.bean;
  *
  * @author Matheus
  */
-public class Aluno {
+public class Aluno  extends Usuario{
 
-    private String nome , endereco , nomeDaMae ,nomeDoPai, telefone, celular , cpf; 
+    private String  nomeDaMae ,nomeDoPai, telefone, celular ; 
     private int matricula;
    
     public int getMatricula() {
@@ -15,22 +15,6 @@ public class Aluno {
 
     public void setMatricula(int matricula) {
         this.matricula = matricula;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public String getNomeDaMae() {
@@ -65,13 +49,5 @@ public class Aluno {
         this.celular = celular;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    
     
 }

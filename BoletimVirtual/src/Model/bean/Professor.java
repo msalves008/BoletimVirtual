@@ -9,7 +9,7 @@ package Model.bean;
  *
  * @author MATHEUS1
  */
-public class Professor extends Pessoa {
+public class Professor extends Usuario {
     //atributos
     private int matricula;
     private String titulacao;
@@ -51,7 +51,7 @@ public class Professor extends Pessoa {
     
     //Métodos
     public void Imprimir(){
-        super.Imprimir();
+        super.toString();
         System.out.println(titulacao);
       
     }
