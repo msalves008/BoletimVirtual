@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.DAO.LoginProfessorDAO;
 import javax.swing.JOptionPane;
 import View.CadastroUsuario;
 
@@ -144,10 +145,13 @@ public class LoginProfessor extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
-
-             private boolean checkLogin(String login , String senha){
+            LoginProfessorDAO dao = new LoginProfessorDAO();    
+    private boolean checkLogin(String login , String senha){               
+        return dao.checkLogin(login, senha);
+             
+        /*private boolean checkLogin(String login , String senha){
                 return login.equals("matheus") && senha.equals("123")
-                       || login.equals("professor") && senha.equals("123");
+                       || login.equals("professor") && senha.equals("123");*/
              }
             
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
