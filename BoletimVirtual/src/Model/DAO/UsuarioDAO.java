@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class UsuarioDAO {
      
-    public boolean checkLogin(String login, String senha) {
+    public boolean checkLogin(String nomeUsuario, String senha) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -29,8 +29,8 @@ public class UsuarioDAO {
 
         try {
 
-            stmt = con.prepareStatement("SELECT * FROM usuario WHERE login = ? and senha = ?");
-            stmt.setString(1, login);
+            stmt = con.prepareStatement("SELECT * FROM usuario WHERE nomeUsuario = ? and senha = ?");
+            stmt.setString(1, nomeUsuario);
             stmt.setString(2, senha);
 
             rs = stmt.executeQuery();

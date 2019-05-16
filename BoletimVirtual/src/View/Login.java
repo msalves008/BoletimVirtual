@@ -6,6 +6,7 @@
 
 package View;
 
+import Model.DAO.UsuarioDAO;
 import javax.swing.JOptionPane;
 import View.LoginProfessor;
 
@@ -187,9 +188,12 @@ public class Login extends javax.swing.JFrame {
      } 
 
     }//GEN-LAST:event_btnEntrarActionPerformed
-        private boolean checkLogin(String login , String senha){
-            return login.equals("matheus") && senha.equals("123")
-                   || login.equals("aluno") && senha.equals("123");
+             UsuarioDAO dao = new UsuarioDAO();    
+    private boolean checkLogin(String login , String senha){               
+        return dao.checkLogin(login, senha);
+        
+       /* return login.equals("matheus") && senha.equals("123")
+                   || login.equals("aluno") && senha.equals("123");*/
      }
     
     private void btnSouProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSouProfessorActionPerformed
