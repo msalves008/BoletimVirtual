@@ -57,8 +57,8 @@ public class CadastroAluno extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtCpf1 = new javax.swing.JTextField();
-        txtCelular1 = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
+        txtCelular = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
@@ -180,13 +180,13 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 840, 70));
 
-        txtCpf1.addActionListener(new java.awt.event.ActionListener() {
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpf1ActionPerformed(evt);
+                txtCpfActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCpf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 280, 40));
-        getContentPane().add(txtCelular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 280, 40));
+        getContentPane().add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 280, 40));
+        getContentPane().add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 280, 40));
 
         jLabel13.setText("CPF:");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, 10));
@@ -216,8 +216,10 @@ public class CadastroAluno extends javax.swing.JFrame {
         a.setEndereco(txtEndereco.getText());
         a.setNomeDaMae(txtNomeDaMae.getText());
         a.setNomeDoPai(txtNomeDoPai.getText());
-        a.setCelular(txtSenha.getText());
-        a.setCpf(txtLogin.getText());
+        a.setCpf(txtCpf.getText());
+        a.setCelular(txtCelular.getText());
+        a.setSenha(txtSenha.getText());
+        a.setLogin(txtLogin.getText());
         dao.create(a);
         
         
@@ -233,9 +235,9 @@ public class CadastroAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void txtCpf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpf1ActionPerformed
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpf1ActionPerformed
+    }//GEN-LAST:event_txtCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,8 +296,8 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField txtCelular1;
-    private javax.swing.JTextField txtCpf1;
+    private javax.swing.JTextField txtCelular;
+    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtMatricula;
