@@ -36,7 +36,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txtSenha = new javax.swing.JTextField();
         txtNomeDoPai = new javax.swing.JTextField();
-        txtUsuario = new javax.swing.JTextField();
+        txtLogin = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
         txtNomeDaMae = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -81,12 +81,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, 280, 40));
         getContentPane().add(txtNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 620, 40));
 
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
+                txtLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 280, 40));
+        getContentPane().add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 280, 40));
 
         txtEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         jLabel4.setText("Nome do Pai:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
-        jLabel5.setText("Usuário:");
+        jLabel5.setText("Login:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, -1, 10));
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
@@ -197,9 +197,9 @@ public class CadastroAluno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_txtLoginActionPerformed
 
     private void txtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnderecoActionPerformed
         // TODO add your handling code here:
@@ -217,7 +217,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         a.setNomeDaMae(txtNomeDaMae.getText());
         a.setNomeDoPai(txtNomeDoPai.getText());
         a.setCelular(txtSenha.getText());
-        a.setCpf(txtUsuario.getText());
+        a.setCpf(txtLogin.getText());
         dao.create(a);
         
         
@@ -297,11 +297,11 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JTextField txtCelular1;
     private javax.swing.JTextField txtCpf1;
     private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeDaMae;
     private javax.swing.JTextField txtNomeDoPai;
     private javax.swing.JTextField txtSenha;
-    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
