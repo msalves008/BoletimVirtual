@@ -5,8 +5,8 @@
  */
 package View;
 
-import Model.DAO.AlunoDAO;
-import Model.bean.Aluno;
+import Model.DAO.*;
+import Model.bean.*;
 
 /**
  *
@@ -218,10 +218,15 @@ public class CadastroAluno extends javax.swing.JFrame {
         a.setNomeDoPai(txtNomeDoPai.getText());
         a.setCpf(txtCpf.getText());
         a.setCelular(txtCelular.getText());
-        a.setSenha(txtSenha.getText());
-        a.setLogin(txtLogin.getText());
+        
         dao.create(a);
         
+        Usuario user = new Usuario();
+        UsuarioDAO uDAO = new UsuarioDAO();
+        
+        user.setSenha(txtSenha.getText());
+        user.setLogin(txtLogin.getText());
+        uDAO.create(user);
         
        // p.setDescricao(txtDesc.getText());
         //p.setQtd(Integer.parseInt(txtQtd.getText()));

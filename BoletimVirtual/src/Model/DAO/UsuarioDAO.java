@@ -6,12 +6,14 @@
 package Model.DAO;
 
 import Connection.ConnectionFactory;
+import Model.bean.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,5 +51,27 @@ public class UsuarioDAO {
 
         return check;
 
+    }
+    public void create(Usuario u){
+        
+         Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("INSERT INTO usuario (nomeUsuario,senha)VALUES(?,?)");
+            //stmt.setInt(1,a.getMatricula());
+            
+            stmt.setString (1, u.getLogin());
+            stmt.setString(2, u.getSenha());
+
+            stmt.executeUpdate();
+              
+
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
     }
 }
