@@ -7,7 +7,7 @@ package View;
 
 import Model.DAO.LoginProfessorDAO;
 import javax.swing.JOptionPane;
-import View.CadastroUsuario;
+import View.CadastroAluno;
 
 
 /**
@@ -137,7 +137,7 @@ public class LoginProfessor extends javax.swing.JFrame {
 
         if(checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()))){
             //JOptionPane.showMessageDialog(null,"Good Job, You username and your password is correct." );
-           CadastroUsuario tela = new CadastroUsuario();
+           CadastroAluno tela = new CadastroAluno();
             tela.setVisible(true);
             dispose(); /*Esta linha fecha a janela de Login*/
         }  else{
