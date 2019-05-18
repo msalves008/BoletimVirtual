@@ -16,6 +16,7 @@ public class MenuProfessor extends javax.swing.JFrame {
      */
     public MenuProfessor() {
         initComponents();
+        setLocationRelativeTo( null ); /* esta linha centraliza a janela*/
     }
 
     /**
@@ -72,7 +73,7 @@ public class MenuProfessor extends javax.swing.JFrame {
                 btnAtualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 200, 40));
+        getContentPane().add(btnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 200, 40));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 204));
 
@@ -91,15 +92,25 @@ public class MenuProfessor extends javax.swing.JFrame {
 
         btnSair.setBackground(new java.awt.Color(204, 0, 0));
         btnSair.setText("SAIR");
-        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 200, 40));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 200, 40));
 
         btnCadastar.setBackground(new java.awt.Color(51, 255, 51));
         btnCadastar.setText("CADASTRAR NOVO ALUNO");
-        getContentPane().add(btnCadastar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 200, 40));
+        btnCadastar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCadastar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, 40));
 
         btnLancarNota_Frec.setBackground(new java.awt.Color(0, 204, 204));
         btnLancarNota_Frec.setText("LANÇAR NOTA/FREQUÊNCIA");
-        getContentPane().add(btnLancarNota_Frec, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 200, 40));
+        getContentPane().add(btnLancarNota_Frec, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 200, 40));
 
         jLabel2.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
@@ -112,6 +123,17 @@ public class MenuProfessor extends javax.swing.JFrame {
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void btnCadastarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastarActionPerformed
+        // TODO add your handling code here:
+        CadastroAluno tela = new CadastroAluno();
+            tela.setVisible(true);
+    }//GEN-LAST:event_btnCadastarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        dispose(); /*Esta linha fecha a janela */
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments

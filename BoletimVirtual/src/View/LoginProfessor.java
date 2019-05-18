@@ -136,8 +136,13 @@ public class LoginProfessor extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
         if(checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()))){
-            //JOptionPane.showMessageDialog(null,"Good Job, You username and your password is correct." );
-           CadastroAluno tela = new CadastroAluno();
+           
+            MenuProfessor tela = new MenuProfessor();
+            tela.setVisible(true);
+            dispose(); /*Esta linha fecha a janela de Login*/
+
+//JOptionPane.showMessageDialog(null,"Good Job, You username and your password is correct." );
+           /*CadastroAluno tela = new CadastroAluno();
             tela.setVisible(true);
             dispose(); /*Esta linha fecha a janela de Login*/
         }  else{
