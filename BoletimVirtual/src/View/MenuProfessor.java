@@ -122,16 +122,18 @@ public class MenuProfessor extends javax.swing.JFrame {
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
+        AtualizarDados tela = new AtualizarDados();
+        tela.setVisible(true);
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnCadastarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastarActionPerformed
-        // TODO add your handling code here:
+        // este comandos são responsaveis por invocar a tela de cadastro de alunos 
         CadastroAluno tela = new CadastroAluno();
             tela.setVisible(true);
     }//GEN-LAST:event_btnCadastarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
+       
         dispose(); /*Esta linha fecha a janela */
     }//GEN-LAST:event_btnSairActionPerformed
 
