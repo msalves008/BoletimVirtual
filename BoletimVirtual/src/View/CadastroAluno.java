@@ -206,9 +206,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEnderecoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         //Produto p = new Produto();
-        //UsuarioDAO dao = new UsuarioDAO();
+        // fazendo cadastro de um novo aluno
         Aluno a = new Aluno();
         AlunoDAO dao = new AlunoDAO();
        // a.setMatricula(Integer.parseInt(txtMatricula.getText()));
@@ -221,6 +219,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         
         dao.create(a);
         
+        // criando um novo usuario para o aluno
         Usuario user = new Usuario();
         UsuarioDAO uDAO = new UsuarioDAO();
         

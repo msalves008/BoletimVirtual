@@ -48,29 +48,44 @@ public class AlunoDAO {
         }
         
     }
-    
-    /*public void create(Usuario u){
-        
-         Connection con = ConnectionFactory.getConnection();
+    //Fazendo leitua da tabela do banco de dados
+      public List<Aluno> read() {
+
+        Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Aluno> alunos = new ArrayList<>();
+
         try {
-            stmt = con.prepareStatement("INSERT INTO usuario (nomeUsuario,senha)VALUES(?,?)");
-            //stmt.setInt(1,a.getMatricula());
-            
-            stmt.setString (1, u.getLogin());
-            stmt.setString(2, u.getSenha());
+            stmt = con.prepareStatement("SELECT * FROM cadastrar_aluno");
+            rs = stmt.executeQuery();
 
-            stmt.executeUpdate();
-              
+            while (rs.next()) {
 
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+                Aluno aluno = new Aluno();
+
+                aluno.setMatricula(rs.getInt("id"));
+                aluno.setNome(rs.getString("descricao"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setNomeDaMae(rs.getString("nome_da_mae"));
+                aluno.setNomeDoPai(rs.getString("nome_do_pai"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setCpf(rs.getString("cpf"));
+                
+                alunos.add(aluno); /*Adicionado os alunos que estão cadastrados no banco de dados  na tabela*/
+            }
+
         } catch (SQLException ex) {
-            System.out.println(ex);
+            Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            ConnectionFactory.closeConnection(con, stmt, rs);
         }
-    }*/
+
+        return alunos;
+
+    }
     
     
     

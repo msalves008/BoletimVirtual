@@ -5,6 +5,11 @@
  */
 package View;
 
+import Model.DAO.AlunoDAO;
+import Model.bean.Aluno;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Matheus
@@ -16,8 +21,36 @@ public class AtualizarDados extends javax.swing.JFrame {
      */
     public AtualizarDados() {
         initComponents();
+        
+         /* DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
+        jTableAtualizarDados.setRowSorter(new TableRowSorter(modelo));
+
+        readJTable();*/
+        
          setLocationRelativeTo( null ); /* esta linha centraliza a janela*/
     }
+    
+    /*public void readJTable(){
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
+          modelo.setNumRows(0);
+        AlunoDAO aDAO = new AlunoDAO();
+        
+        for(Aluno a: aDAO.read()){
+            
+           modelo.addRow(new Object[]{
+               a.getMatricula(),
+               a.getNome(),
+               a.getEndereco(),
+               a.getNomeDaMae(),
+               a.getNomeDoPai(),
+               a.getCelular(),
+               a.getCpf()
+           });
+        }
+        
+    }*/
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +83,7 @@ public class AtualizarDados extends javax.swing.JFrame {
         btnDeletar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableAtualizarDados = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,7 +160,7 @@ public class AtualizarDados extends javax.swing.JFrame {
 
         btnSair.setText("Sair");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAtualizarDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -135,7 +168,7 @@ public class AtualizarDados extends javax.swing.JFrame {
                 "Matricula", "Nome", " Endereco", "Nome da Mãe", "Nome do Pai ", "Celular ", "CPF"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableAtualizarDados);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -361,7 +394,7 @@ public class AtualizarDados extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableAtualizarDados;
     private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEndereco;
