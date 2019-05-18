@@ -13,8 +13,50 @@ import java.util.ArrayList;
  */
 public class Disciplina {
 
+    //Atributos
     private String nome ;
     private ArrayList<Aluno> alunos;
     private Professor professor;
+    
+    //Construtor Padrão
+    public Disciplina(){
+        nome = "";
+        alunos = new ArrayList();
+        professor = new Professor();
+    }
+    
+    //Construtor Personalizado
+
+    public Disciplina(String nome, ArrayList<Aluno> alunos, Professor professor) {
+        this.nome = nome;
+        this.alunos = alunos;
+        this.professor = professor;
+    }
+    
+    //Getters e Setters
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public ArrayList<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
     
 }
