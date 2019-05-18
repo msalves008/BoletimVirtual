@@ -110,6 +110,11 @@ public class MenuProfessor extends javax.swing.JFrame {
 
         btnLancarNota_Frec.setBackground(new java.awt.Color(0, 204, 204));
         btnLancarNota_Frec.setText("LANÇAR NOTA/FREQUÊNCIA");
+        btnLancarNota_Frec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLancarNota_FrecActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLancarNota_Frec, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 200, 40));
 
         jLabel2.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
@@ -136,6 +141,13 @@ public class MenuProfessor extends javax.swing.JFrame {
        
         dispose(); /*Esta linha fecha a janela */
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnLancarNota_FrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancarNota_FrecActionPerformed
+        // TODO add your handling code here:
+        
+        TelaLancarNotas_Freq tela = new TelaLancarNotas_Freq();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnLancarNota_FrecActionPerformed
 
     /**
      * @param args the command line arguments

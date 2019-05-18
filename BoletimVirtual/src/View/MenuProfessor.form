@@ -154,6 +154,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LAN&#xc7;AR NOTA/FREQU&#xca;NCIA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLancarNota_FrecActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="300" y="170" width="200" height="40"/>
