@@ -124,8 +124,15 @@
         <Component class="javax.swing.JTable" name="jTableResultado">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="0">
-                <Column editable="true" title="DISCIPLINAS" type="java.lang.String"/>
+              <Table columnCount="5" rowCount="6">
+                <Column editable="true" title="DISCIPLINAS" type="java.lang.String">
+                  <Data value="ARQ. DE COMPUTADORES"/>
+                  <Data value="C&#xc1;LCULO"/>
+                  <Data value="NGL&#xca;S "/>
+                  <Data value="LEGISLA&#xc7;&#xc3;O "/>
+                  <Data value="MTC"/>
+                  <Data value="POO"/>
+                </Column>
                 <Column editable="true" title="NOTA N1" type="java.lang.Double"/>
                 <Column editable="true" title="NOTA N2" type="java.lang.Double"/>
                 <Column editable="true" title="M&#xc9;DIA" type="java.lang.Double"/>
