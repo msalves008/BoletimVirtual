@@ -38,7 +38,7 @@ public class TelaAluno extends javax.swing.JFrame {
         jLabelAluno = new javax.swing.JLabel();
         jLabelCurso = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
 

@@ -86,7 +86,7 @@ public class AtualizarDados extends javax.swing.JFrame {
         jTableAtualizarDados = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nome");
 
