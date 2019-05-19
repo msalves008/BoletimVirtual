@@ -65,7 +65,12 @@ public class TelaAluno extends javax.swing.JFrame {
 
         jTableResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {"ARQ. DE COMPUTADORES", null, null, null, null},
+                {"CÁLCULO", null, null, null, null},
+                {"NGLÊS ", null, null, null, null},
+                {"LEGISLAÇÃO ", null, null, null, null},
+                {"MTC", null, null, null, null},
+                {"POO", null, null, null, null}
             },
             new String [] {
                 "DISCIPLINAS", "NOTA N1", "NOTA N2", "MÉDIA", "RESULTADO"
