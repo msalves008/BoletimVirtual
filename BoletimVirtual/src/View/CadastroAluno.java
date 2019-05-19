@@ -34,7 +34,6 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txtSenha = new javax.swing.JTextField();
         txtNomeDoPai = new javax.swing.JTextField();
         txtLogin = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
@@ -57,10 +56,11 @@ public class CadastroAluno extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        txtCpf = new javax.swing.JTextField();
-        txtCelular = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        txtCelular = new javax.swing.JFormattedTextField();
+        txtCpf = new javax.swing.JFormattedTextField();
+        txtSenha = new javax.swing.JPasswordField();
 
         jLabel8.setText("jLabel8");
 
@@ -78,38 +78,37 @@ public class CadastroAluno extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(830, 680));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, 280, 40));
-        getContentPane().add(txtNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 620, 40));
+        getContentPane().add(txtNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 620, 40));
 
         txtLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 280, 40));
+        getContentPane().add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 280, 40));
 
         txtEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEnderecoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 620, 40));
-        getContentPane().add(txtNomeDaMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 620, 40));
+        getContentPane().add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 620, 40));
+        getContentPane().add(txtNomeDaMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 620, 40));
 
         jLabel1.setText("Senha:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, -1, 10));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, 10));
 
         jLabel2.setText("Endereço:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
 
         jLabel3.setText("Nome da Mãe:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
 
         jLabel4.setText("Nome do Pai:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, -1));
 
         jLabel5.setText("Login:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, -1, 10));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, -1, 10));
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setFont(new java.awt.Font("Mongolian Baiti", 1, 18)); // NOI18N
@@ -127,14 +126,14 @@ public class CadastroAluno extends javax.swing.JFrame {
                 txtNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 440, 40));
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 440, 40));
 
         jLabel6.setText("Matricula:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
-        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 170, 40));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
+        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 170, 40));
 
         jLabel7.setText("Nome:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -164,8 +163,8 @@ public class CadastroAluno extends javax.swing.JFrame {
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Power by: Matheus");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 235, 32));
+        jLabel11.setText("DGP-Sistemas");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 170, 32));
 
         jPanel5.setBackground(new java.awt.Color(0, 51, 204));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -180,19 +179,26 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 840, 70));
 
-        txtCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 280, 40));
-        getContentPane().add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 280, 40));
-
         jLabel13.setText("CPF:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, 10));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, 10));
 
         jLabel14.setText("Celular:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, 10));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, -1, 10));
+
+        try {
+            txtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 280, 40));
+
+        try {
+            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 280, 40));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, 280, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,10 +244,6 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,14 +302,14 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField txtCelular;
-    private javax.swing.JTextField txtCpf;
+    private javax.swing.JFormattedTextField txtCelular;
+    private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeDaMae;
     private javax.swing.JTextField txtNomeDoPai;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
