@@ -12,29 +12,45 @@ package Model.bean;
 public class Nota {
     
     //Atributos
-    private double nota;
+    private double nota1, nota2 , media;
     
     //Construtor Padrão
-    public Nota(){
-        nota = 0;
+
+    public Nota() {
+        nota1 = 0;
+        nota2 = 0;
     }
+    
     
     //Construtor Personalizado
 
-    public Nota(double nota) {
-        this.nota = nota;
+    public Nota(double nota1, double nota2) {
+        this.nota1 = nota1;
+        this.nota2 = nota2;
     }
-    
+    public double getNota1() {
+        return nota1;
+    }
+
+    public void setNota1(double nota1) {
+        this.nota1 = nota1;
+    }
+
+    public double getNota2() {
+        return nota2;
+    }
+
     //Getters e Setters
-
-    public double getNota() {
-        return nota;
+    public void setNota2(double nota2) {
+        this.nota2 = nota2;
     }
 
-    public void setNota(double nota) {
-        this.nota = nota;
-    }
+   // método
     
+    public double CalcularMedia(){
+       media = (nota1 + nota2)/2;
+       return media;
+    }
 
     
 }
