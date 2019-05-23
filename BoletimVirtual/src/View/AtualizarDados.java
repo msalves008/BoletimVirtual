@@ -22,15 +22,15 @@ public class AtualizarDados extends javax.swing.JFrame {
     public AtualizarDados() {
         initComponents();
         
-         /* DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
+          DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
         jTableAtualizarDados.setRowSorter(new TableRowSorter(modelo));
 
-        readJTable();*/
+        readJTable();
         
          setLocationRelativeTo( null ); /* esta linha centraliza a janela*/
     }
     
-    /*public void readJTable(){
+    public void readJTable(){
         
         DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
           modelo.setNumRows(0);
@@ -49,7 +49,7 @@ public class AtualizarDados extends javax.swing.JFrame {
            });
         }
         
-    }*/
+    }
     
 
     /**

@@ -66,7 +66,7 @@ public class MenuProfessor extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 100));
 
-        btnAtualizar.setBackground(new java.awt.Color(255, 255, 51));
+        btnAtualizar.setBackground(new java.awt.Color(255, 255, 255));
         btnAtualizar.setText("ATUALIZA/EDITAR DADOS");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +90,7 @@ public class MenuProfessor extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 362, -1, 30));
 
-        btnSair.setBackground(new java.awt.Color(204, 0, 0));
+        btnSair.setBackground(new java.awt.Color(255, 255, 255));
         btnSair.setText("SAIR");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +99,7 @@ public class MenuProfessor extends javax.swing.JFrame {
         });
         getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 200, 40));
 
-        btnCadastar.setBackground(new java.awt.Color(51, 255, 51));
+        btnCadastar.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastar.setText("CADASTRAR NOVO ALUNO");
         btnCadastar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class MenuProfessor extends javax.swing.JFrame {
         });
         getContentPane().add(btnCadastar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, 40));
 
-        btnLancarNota_Frec.setBackground(new java.awt.Color(0, 204, 204));
+        btnLancarNota_Frec.setBackground(new java.awt.Color(255, 255, 255));
         btnLancarNota_Frec.setText("LANÇAR NOTA/FREQUÊNCIA");
         btnLancarNota_Frec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

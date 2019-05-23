@@ -67,7 +67,7 @@ public class AlunoDAO {
                 Aluno aluno = new Aluno();
 
                 aluno.setMatricula(rs.getInt("id"));
-                aluno.setNome(rs.getString("descricao"));
+                aluno.setNome(rs.getString("nome"));
                 aluno.setEndereco(rs.getString("endereco"));
                 aluno.setNomeDaMae(rs.getString("nome_da_mae"));
                 aluno.setNomeDoPai(rs.getString("nome_do_pai"));
