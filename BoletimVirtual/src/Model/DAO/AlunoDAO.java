@@ -59,7 +59,7 @@ public class AlunoDAO {
         List<Aluno> alunos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM cadastrar_aluno");
+            stmt = con.prepareStatement("SELECT * FROM cadastrar_aluno ORDER BY nome ASC");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
