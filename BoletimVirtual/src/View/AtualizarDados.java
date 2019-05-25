@@ -7,6 +7,7 @@ package View;
 
 import Model.DAO.AlunoDAO;
 import Model.bean.Aluno;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -50,6 +51,29 @@ public class AtualizarDados extends javax.swing.JFrame {
         }
         
     }
+    
+    public void readNome(String nome){
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
+          modelo.setNumRows(0);
+        AlunoDAO aDAO = new AlunoDAO();
+        
+        for(Aluno a: aDAO.read()){
+            
+           modelo.addRow(new Object[]{
+               a.getMatricula(),
+               a.getNome(),
+               a.getEndereco(),
+               a.getNomeDaMae(),
+               a.getNomeDoPai(),
+               a.getCelular(),
+               a.getCpf()
+           });
+        }
+        
+    }
+    
+    
     
 
     /**
@@ -153,10 +177,20 @@ public class AtualizarDados extends javax.swing.JFrame {
         });
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnAtualizar.setText("Atualizar");
 
         btnDeletar.setText("Deletar");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
 
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +207,16 @@ public class AtualizarDados extends javax.swing.JFrame {
                 "Matricula", "Nome", " Endereco", "Nome da Mãe", "Nome do Pai ", "Celular ", "CPF"
             }
         ));
+        jTableAtualizarDados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAtualizarDadosMouseClicked(evt);
+            }
+        });
+        jTableAtualizarDados.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTableAtualizarDadosKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAtualizarDados);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -351,6 +395,63 @@ public class AtualizarDados extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
       dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        readNome(txtNome.getText());
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        // System.out.println("Linha selecionada: "+jTableAtualizarDados.getSelectedRow());
+        
+        if (jTableAtualizarDados.getSelectedRow() != -1) {
+
+            Aluno a = new Aluno();
+          AlunoDAO aDAO = new AlunoDAO();
+
+            a.setId((int) jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 0));
+            
+            aDAO.delete(a);
+            //Limpando campo
+           txtNome.setText("");
+           txtEndereco.setText("");
+           txtNomeDaMae.setText("");
+           txtNomeDoPai.setText("");
+           txtCelular.setText("");
+           txtCpf.setText("");
+           
+            readJTable();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um produto para excluir.");
+        }
+    }//GEN-LAST:event_btnDeletarActionPerformed
+
+    private void jTableAtualizarDadosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableAtualizarDadosKeyReleased
+      if (jTableAtualizarDados.getSelectedRow() != -1) {
+
+            txtNome.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 1).toString());
+            txtEndereco.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 2).toString());
+            txtNomeDaMae.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 3).toString());
+            txtNomeDoPai.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 4).toString());
+            txtCelular.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 5).toString());
+            txtCpf.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 6).toString());
+
+        }
+    }//GEN-LAST:event_jTableAtualizarDadosKeyReleased
+
+    private void jTableAtualizarDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAtualizarDadosMouseClicked
+         if (jTableAtualizarDados.getSelectedRow() != -1) {
+
+            txtNome.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 1).toString());
+            txtEndereco.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 2).toString());
+            txtNomeDaMae.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 3).toString());
+            txtNomeDoPai.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 4).toString());
+            txtCelular.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 5).toString());
+            txtCpf.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 6).toString());
+
+        }
+    }//GEN-LAST:event_jTableAtualizarDadosMouseClicked
 
     /**
      * @param args the command line arguments

@@ -87,6 +87,66 @@ public class AlunoDAO {
 
     }
     
+      public List<Aluno> readNome(String nome) { // selecionando aluno pelo nome
+
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Aluno> alunos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM cadastrar_aluno where nome like ?  ORDER BY nome ASC");
+            stmt.setString(1, '%'+nome+'%');
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Aluno aluno = new Aluno();
+
+                aluno.setMatricula(rs.getInt("id"));
+                aluno.setNome(rs.getString("nome"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setNomeDaMae(rs.getString("nome_da_mae"));
+                aluno.setNomeDoPai(rs.getString("nome_do_pai"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setCpf(rs.getString("cpf"));
+                
+                alunos.add(aluno); /*Adicionado os alunos que estão cadastrados no banco de dados  na tabela*/
+            }
+JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Falha ao Buscar!");
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return alunos;
+
+    }
+          public void delete(Aluno a) {
+
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("DELETE FROM cadastrar_aluno WHERE id = ?");
+            stmt.setInt(1, a.getId());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+
+    }
     
     
     
