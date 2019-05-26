@@ -147,6 +147,49 @@ JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
         }
 
     }
+           
+          public void  Atualizar(Aluno a) {
+
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        List<Aluno> alunos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("UPDATE Cadastrar_aluno SET nome = ? ,endereco = ?,nome_da_mae = ?, nome_do_pai =?, celular = ?, cpf =? WHERE id = ?");
+            
+
+                // Aluno aluno = new Aluno();
+   
+               // aluno.setMatricula(rs.getInt("id"));
+               /* aluno.setNome(rs.getString("nome"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setNomeDaMae(rs.getString("nome_da_mae"));
+                aluno.setNomeDoPai(rs.getString("nome_do_pai"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setCpf(rs.getString("cpf"));*/
+            stmt.setInt(7, a.getId()); 
+            stmt.setString(1, a.getNome());
+            stmt.setString(2, a.getEndereco());
+            stmt.setString(3, a.getNomeDaMae());
+            stmt.setString(4, a.getNomeDoPai());
+            //stmt.setString(5, a.getTelefone() );
+            stmt.setString(5, a.getCelular());
+            stmt.setString(6, a.getCpf());
+                        
+            //System.out.println("passei aqui");
+        stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+
+          }
+
     
     
     

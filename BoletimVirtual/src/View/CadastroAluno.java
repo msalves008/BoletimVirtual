@@ -190,6 +190,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCelular.setText("");
         getContentPane().add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 280, 40));
 
         try {
