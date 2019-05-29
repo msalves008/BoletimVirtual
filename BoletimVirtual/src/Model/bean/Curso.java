@@ -21,7 +21,7 @@ public class Curso {
     //Contrutor padrão
     public Curso(){
         nome = "";
-        aluno = new Aluno();
+        //aluno = new Aluno();
         disciplinas = new ArrayList();
     }
     

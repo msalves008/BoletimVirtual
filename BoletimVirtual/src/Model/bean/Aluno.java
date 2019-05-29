@@ -23,7 +23,7 @@ public class Aluno  extends Usuario{
         telefone = "";
         celular = "";
         matricula = 0;
-        curso = new Curso();
+       // curso = new Curso();
         disciplinas = new ArrayList();
         notas = new ArrayList();
     }
