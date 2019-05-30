@@ -16,6 +16,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
      */
     public TelaLancarNotas_Freq() {
         initComponents();
+         setLocationRelativeTo( null );
     }
 
     /**
@@ -52,6 +53,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jTableLancarNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,6 +107,11 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         jLabel1.setText("Disciplinas");
 
         jComboBoxDisciplinas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ARQ. DE COMPUTADORES", "CÁLCULO", "INGLÊS", "LEGISLAÇÃO", "MTC", "POO" }));
+        jComboBoxDisciplinas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDisciplinasActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("N1:");
@@ -210,6 +217,10 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     private void txtAlunoTelaLancarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlunoTelaLancarNotaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAlunoTelaLancarNotaActionPerformed
+
+    private void jComboBoxDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDisciplinasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDisciplinasActionPerformed
 
     /**
      * @param args the command line arguments

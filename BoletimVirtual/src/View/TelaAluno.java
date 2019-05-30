@@ -16,6 +16,7 @@ public class TelaAluno extends javax.swing.JFrame {
      */
     public TelaAluno() {
         initComponents();
+         setLocationRelativeTo( null );
     }
 
     /**
