@@ -180,8 +180,11 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
      if(checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()))){
-         JOptionPane.showMessageDialog(null,"Good Job, Your username and your password is correct." ); /*Subistuir está linha pelo o codico da proxima tela*/
-         dispose(); /*Esta linha fecha a janela de Login*/
+         //JOptionPane.showMessageDialog(null,"Good Job, Your username and your password is correct." ); /*Subistuir está linha pelo o codico da proxima tela*/
+         TelaAluno tela = new TelaAluno();
+            tela.setVisible(true);
+            dispose(); /*Esta linha fecha a janela de Login*/
+         
      }  else{
          JOptionPane.showMessageDialog(null, " Usuario ou senha incorreto, tente Novamente ");
         
