@@ -24,7 +24,15 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     public TelaLancarNotas_Freq() {
         initComponents();
          setLocationRelativeTo( null );
+        
+         /* DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
+        jTableAtualizarDados.setRowSorter(new TableRowSorter(modelo));
+
+        readJTable();*/
+         
          preencherComboBox();
+         
+         
     }
  public void preencherComboBox(){
         
@@ -39,8 +47,25 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
             jComboBoxDisciplinas.addItem(i.next().getNome());
             
         }
+    
        
     }
+     public void readJTable(){
+       /*DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
+          modelo.setNumRows(0);
+        AlunoDAO aDAO = new AlunoDAO();
+        
+        for(Aluno a: aDAO.read()){
+            
+           modelo.addRow(new Object[]{
+               //a.getMatricula(),
+               a.getNome(),
+               
+           });
+        }
+         
+         */  
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,11 +111,11 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
             },
             new String [] {
-                "DISCIPLINA", "NOTA N1", "NOTA N2", "MÉDIA"
+                " ALUNO", "NOTA N1", "NOTA N2", "MÉDIA"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
