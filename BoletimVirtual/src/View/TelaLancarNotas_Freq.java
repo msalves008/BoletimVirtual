@@ -30,6 +30,9 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("mysql?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        columnStatsQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM ColumnStats c");
+        columnStatsList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : columnStatsQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLancarNotas = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -42,7 +45,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         txtN2 = new javax.swing.JTextField();
         jButtonLancarNotas = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtMatriculaTelaLancarNota = new javax.swing.JTextField();
+        txtMatricula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtAlunoTelaLancarNota = new javax.swing.JTextField();
 
@@ -57,12 +60,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         jTableLancarNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "DISCIPLINA", "NOTA N1", "NOTA N2", "MÉDIA"
@@ -168,7 +166,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMatriculaTelaLancarNota))
+                            .addComponent(txtMatricula))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -188,7 +186,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMatriculaTelaLancarNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAlunoTelaLancarNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -203,8 +201,8 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(59, 59, 59)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -258,6 +256,9 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.util.List<View.ColumnStats> columnStatsList;
+    private javax.persistence.Query columnStatsQuery;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButtonLancarNotas;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
@@ -272,7 +273,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLancarNotas;
     private javax.swing.JTextField txtAlunoTelaLancarNota;
-    private javax.swing.JTextField txtMatriculaTelaLancarNota;
+    private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtN1;
     private javax.swing.JTextField txtN2;
     // End of variables declaration//GEN-END:variables

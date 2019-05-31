@@ -10,7 +10,8 @@ package Model.bean;
  * @author ALUNO
  */
 public class Boletim {
-    
+    private int id;
+    private double nota1, nota2, media;
     //atributos
     private Aluno aluno;
     
@@ -31,6 +32,38 @@ public class Boletim {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getNota1() {
+        return nota1;
+    }
+
+    public void setNota1(double nota1) {
+        this.nota1 = nota1;
+    }
+
+    public double getNota2() {
+        return nota2;
+    }
+
+    public void setNota2(double nota2) {
+        this.nota2 = nota2;
+    }
+
+    public double getMedia() {
+        return media;
+    }
+
+    public void setMedia(double media) {
+        this.media = media;
     }
  
 }
