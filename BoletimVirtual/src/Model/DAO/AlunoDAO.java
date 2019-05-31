@@ -26,7 +26,7 @@ public class AlunoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO cadastrar_aluno (nome,endereco,nome_da_mae,nome_do_pai,celular,cpf)VALUES(?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO tbl_aluno (nome,endereco,nome_da_mae,nome_do_pai,celular,cpf, idcurso)VALUES(?,?,?,?,?,?,10)");
             //stmt.setInt(1,a.getMatricula());
             stmt.setString(1, a.getNome());
             stmt.setString(2, a.getEndereco());
@@ -35,7 +35,7 @@ public class AlunoDAO {
             //stmt.setString(5, a.getTelefone() );
             stmt.setString(5, a.getCelular());
             stmt.setString(6, a.getCpf());
-            
+                        
 
             stmt.executeUpdate();
               
@@ -59,7 +59,7 @@ public class AlunoDAO {
         List<Aluno> alunos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM cadastrar_aluno ORDER BY nome ASC");
+            stmt = con.prepareStatement("SELECT * FROM tbl_aluno ORDER BY nome ASC");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -97,7 +97,7 @@ public class AlunoDAO {
         List<Aluno> alunos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM cadastrar_aluno where nome like ?  ORDER BY nome ASC");
+            stmt = con.prepareStatement("SELECT * FROM tbl_aluno where nome like ?  ORDER BY nome ASC");
             stmt.setString(1, '%'+nome+'%');
             
             rs = stmt.executeQuery();
@@ -134,7 +134,7 @@ JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM cadastrar_aluno WHERE id = ?");
+            stmt = con.prepareStatement("DELETE FROM tbl_aluno WHERE id = ?");
             stmt.setInt(1, a.getId());
 
             stmt.executeUpdate();
@@ -157,7 +157,7 @@ JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
         List<Aluno> alunos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("UPDATE Cadastrar_aluno SET nome = ? ,endereco = ?,nome_da_mae = ?, nome_do_pai =?, celular = ?, cpf =? WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE tbl_aluno SET nome = ? ,endereco = ?,nome_da_mae = ?, nome_do_pai =?, celular = ?, cpf =? WHERE id = ?");
             
 
                 // Aluno aluno = new Aluno();
