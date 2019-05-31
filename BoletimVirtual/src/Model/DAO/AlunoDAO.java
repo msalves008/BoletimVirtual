@@ -191,6 +191,39 @@ JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
           }
 
     
-    
+    //Fazendo leitua da tabela do banco de dados
+      public List<Aluno> readPesquisarAluno() {
+
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Aluno> alunos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT id,nome FROM tbl_aluno ORDER BY nome ASC");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Aluno aluno = new Aluno();
+
+                aluno.setMatricula(rs.getInt("id"));
+                aluno.setNome(rs.getString("nome"));
+                
+                
+                alunos.add(aluno); /*Adicionado os alunos que estão cadastrados no banco de dados  na tabela*/
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return alunos;
+
+    }
     
 }

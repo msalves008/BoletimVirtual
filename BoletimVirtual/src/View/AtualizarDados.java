@@ -435,7 +435,7 @@ public class AtualizarDados extends javax.swing.JFrame {
             readJTable();
 
         } else {
-            JOptionPane.showMessageDialog(null, "Selecione um produto para excluir.");
+            JOptionPane.showMessageDialog(null, "Selecione um Aluno para excluir.");
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 
