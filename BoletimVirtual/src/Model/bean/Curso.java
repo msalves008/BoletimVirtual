@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Curso {
     
      //Atributos
+    private int id;
     private String nome;
     private Aluno aluno;
     private ArrayList<Disciplina> disciplinas;
@@ -27,8 +28,9 @@ public class Curso {
     
     //Construtor Personalizado
 
-    public Curso(String nome, Aluno aluno, Disciplina disciplina) {
+    public Curso(int id , String nome, Aluno aluno, Disciplina disciplina) {
         this.nome = nome;
+        this.id = id;
         this.aluno = aluno;
         this.disciplinas = new ArrayList();
     }
@@ -57,6 +59,14 @@ public class Curso {
 
     public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
    

@@ -7,6 +7,8 @@ package View;
 
 import Model.DAO.*;
 import Model.bean.*;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -19,8 +21,24 @@ public class CadastroAluno extends javax.swing.JFrame {
      */
     public CadastroAluno() {
         initComponents();
+        preencherComboBox();
        //Centralizando a janela
         setLocationRelativeTo( null );
+    }
+    
+    public void preencherComboBox(){
+        CursoDAO c = new CursoDAO();
+        
+        List<Curso> cursos = c.read();
+        
+        Iterator<Curso> i = cursos.iterator();
+        
+        while(i.hasNext()){
+            
+            jComboBox1.addItem(i.next().getNome());
+            
+        }
+       
     }
 
     /**
@@ -46,7 +64,6 @@ public class CadastroAluno extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         txtNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtMatricula = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -61,6 +78,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         txtCelular = new javax.swing.JFormattedTextField();
         txtCpf = new javax.swing.JFormattedTextField();
         txtSenha = new javax.swing.JPasswordField();
+        jComboBox1 = new javax.swing.JComboBox();
 
         jLabel8.setText("jLabel8");
 
@@ -126,14 +144,13 @@ public class CadastroAluno extends javax.swing.JFrame {
                 txtNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 440, 40));
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 330, 40));
 
-        jLabel6.setText("Matricula:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
-        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 170, 40));
+        jLabel6.setText("Curso:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
 
         jLabel7.setText("Nome:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -201,6 +218,13 @@ public class CadastroAluno extends javax.swing.JFrame {
         getContentPane().add(txtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 280, 40));
         getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 480, 280, 40));
 
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 300, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -246,6 +270,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+     /*Curso c;
+     CursoDAO dao = null ;
+     dao.read();*/
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,6 +314,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -307,7 +338,6 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtLogin;
-    private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeDaMae;
     private javax.swing.JTextField txtNomeDoPai;
