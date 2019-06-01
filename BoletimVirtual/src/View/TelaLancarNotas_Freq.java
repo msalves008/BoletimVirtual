@@ -62,8 +62,9 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         for(Aluno a: aDAO.read()){
             
            modelo.addRow(new Object[]{
-           a.getNome(),
-               
+               a.getMatricula(),
+               a.getNome()
+                          
            });
         }
          
@@ -94,7 +95,6 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         txtMatricula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtAluno = new javax.swing.JTextField();
-        btnPesquisarAluno = new javax.swing.JButton();
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
@@ -104,17 +104,18 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTableLancarNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                " ALUNO", "NOTA N1", "NOTA N2", "MÉDIA"
+                "MATRICULA", " ALUNO", "NOTA N1", "NOTA N2", "MÉDIA"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -132,6 +133,13 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTableLancarNotas);
+        if (jTableLancarNotas.getColumnModel().getColumnCount() > 0) {
+            jTableLancarNotas.getColumnModel().getColumn(2).setHeaderValue("NOTA N1");
+            jTableLancarNotas.getColumnModel().getColumn(3).setHeaderValue("NOTA N2");
+            jTableLancarNotas.getColumnModel().getColumn(4).setHeaderValue("MÉDIA");
+        }
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 538, 211));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 255));
 
@@ -158,120 +166,56 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Disciplinas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 129, 67, 19));
 
         jComboBoxDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDisciplinasActionPerformed(evt);
             }
         });
+        getContentPane().add(jComboBoxDisciplinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 156, 260, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("N1:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("N2:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
         txtN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtN1ActionPerformed(evt);
             }
         });
+        getContentPane().add(txtN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 140, 23));
 
         txtN2.setMinimumSize(new java.awt.Dimension(6, 24));
         txtN2.setPreferredSize(new java.awt.Dimension(6, 24));
+        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 140, -1));
 
         jButtonLancarNotas.setText("Lançar");
+        getContentPane().add(jButtonLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Matrícula:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 72, -1, -1));
+        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 101, 56, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Aluno:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 72, -1, -1));
 
         txtAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAlunoActionPerformed(evt);
             }
         });
-
-        btnPesquisarAluno.setText("Pesquisar Aluno");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMatricula))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(btnPesquisarAluno)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jComboBoxDisciplinas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(txtN1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtN2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonLancarNotas)))
-                        .addGap(29, 29, 29))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPesquisarAluno))
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxDisciplinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonLancarNotas)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtN2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(txtN1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(txtAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 101, 190, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -300,7 +244,8 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     private void jTableLancarNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLancarNotasMouseClicked
         if (jTableLancarNotas.getSelectedRow() != -1) {
 
-            txtAluno.setText(jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(),0 ).toString());
+            txtMatricula.setText(jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(),0 ).toString());
+            txtAluno.setText(jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(),1 ).toString());
            
 
         }
@@ -342,7 +287,6 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesquisarAluno;
     private java.util.List<View.ColumnStats> columnStatsList;
     private javax.persistence.Query columnStatsQuery;
     private javax.persistence.EntityManager entityManager;
