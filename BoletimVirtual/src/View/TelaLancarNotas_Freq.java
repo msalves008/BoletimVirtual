@@ -5,12 +5,16 @@
  */
 package View;
 
+import Model.DAO.AlunoDAO;
 import Model.DAO.CursoDAO;
 import Model.DAO.DiciplinaDAO;
+import Model.bean.Aluno;
 import Model.bean.Curso;
 import Model.bean.Disciplina;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -25,10 +29,10 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         initComponents();
          setLocationRelativeTo( null );
         
-         /* DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
-        jTableAtualizarDados.setRowSorter(new TableRowSorter(modelo));
+          DefaultTableModel modelo = (DefaultTableModel) jTableLancarNotas.getModel();
+        jTableLancarNotas.setRowSorter(new TableRowSorter(modelo));
 
-        readJTable();*/
+        readJTable();
          
          preencherComboBox();
          
@@ -51,7 +55,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
        
     }
      public void readJTable(){
-       /*DefaultTableModel modelo = (DefaultTableModel) jTableAtualizarDados.getModel();
+       DefaultTableModel modelo = (DefaultTableModel) jTableLancarNotas.getModel();
           modelo.setNumRows(0);
         AlunoDAO aDAO = new AlunoDAO();
         
@@ -64,7 +68,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
            });
         }
          
-         */  
+         
         }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +98,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtMatricula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtAlunoTelaLancarNota = new javax.swing.JTextField();
+        txtAluno = new javax.swing.JTextField();
         btnPesquisarAluno = new javax.swing.JButton();
 
         jCheckBoxMenuItem2.setSelected(true);
@@ -120,6 +124,16 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        jTableLancarNotas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableLancarNotasMouseClicked(evt);
+            }
+        });
+        jTableLancarNotas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTableLancarNotasKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(jTableLancarNotas);
@@ -181,9 +195,9 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Aluno:");
 
-        txtAlunoTelaLancarNota.addActionListener(new java.awt.event.ActionListener() {
+        txtAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAlunoTelaLancarNotaActionPerformed(evt);
+                txtAlunoActionPerformed(evt);
             }
         });
 
@@ -205,7 +219,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtAlunoTelaLancarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(37, 37, 37)
                                 .addComponent(btnPesquisarAluno)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -244,7 +258,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAlunoTelaLancarNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPesquisarAluno))
                         .addGap(28, 28, 28)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,13 +285,36 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtN1ActionPerformed
 
-    private void txtAlunoTelaLancarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlunoTelaLancarNotaActionPerformed
+    private void txtAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlunoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAlunoTelaLancarNotaActionPerformed
+    }//GEN-LAST:event_txtAlunoActionPerformed
 
     private void jComboBoxDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDisciplinasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxDisciplinasActionPerformed
+
+    private void jTableLancarNotasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableLancarNotasKeyReleased
+         if (jTableLancarNotas.getSelectedRow() != -1) {
+
+            txtAluno.setText(jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(), 0).toString());
+           // txtMatricula.setText(jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(), 2).toString());
+            /*txtNomeDaMae.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 3).toString());
+            txtNomeDoPai.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 4).toString());
+            txtCelular.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 5).toString());
+            txtCpf.setText(jTableAtualizarDados.getValueAt(jTableAtualizarDados.getSelectedRow(), 6).toString());*/
+
+        }
+   
+    }//GEN-LAST:event_jTableLancarNotasKeyReleased
+
+    private void jTableLancarNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableLancarNotasMouseClicked
+        if (jTableLancarNotas.getSelectedRow() != -1) {
+
+            txtAluno.setText(jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(),0 ).toString());
+           
+
+        }
+    }//GEN-LAST:event_jTableLancarNotasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -332,7 +369,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLancarNotas;
-    private javax.swing.JTextField txtAlunoTelaLancarNota;
+    private javax.swing.JTextField txtAluno;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtN1;
     private javax.swing.JTextField txtN2;
