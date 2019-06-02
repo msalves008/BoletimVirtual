@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Disciplina {
 
     //Atributos
+   private int id;
     private String nome ;
     private ArrayList<Aluno> alunos;
     private Professor professor;
@@ -57,6 +58,14 @@ public class Disciplina {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 }

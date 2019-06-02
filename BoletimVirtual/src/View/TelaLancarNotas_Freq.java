@@ -6,9 +6,11 @@
 package View;
 
 import Model.DAO.AlunoDAO;
+import Model.DAO.BoletimDAO;
 import Model.DAO.CursoDAO;
 import Model.DAO.DiciplinaDAO;
 import Model.bean.Aluno;
+import Model.bean.Boletim;
 import Model.bean.Curso;
 import Model.bean.Disciplina;
 import java.util.Iterator;
@@ -48,6 +50,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         
         while(i.hasNext()){
             
+            //jComboBoxDisciplinas.addItem(i.next().getId());
             jComboBoxDisciplinas.addItem(i.next().getNome());
             
         }
@@ -80,12 +83,13 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("mysql?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
         columnStatsQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM ColumnStats c");
         columnStatsList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : columnStatsQuery.getResultList();
+        textArea1 = new java.awt.TextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLancarNotas = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabelLancarnotas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxDisciplinas = new javax.swing.JComboBox();
+        jComboBoxDisciplinas = new javax.swing.JComboBox<Object>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtN1 = new javax.swing.JTextField();
@@ -95,6 +99,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         txtMatricula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtAluno = new javax.swing.JTextField();
+        jButtonLancarNotas1 = new javax.swing.JButton();
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
@@ -198,8 +203,8 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         txtN2.setPreferredSize(new java.awt.Dimension(6, 24));
         getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 140, -1));
 
-        jButtonLancarNotas.setText("Lançar");
-        getContentPane().add(jButtonLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
+        jButtonLancarNotas.setText("Lançar N2");
+        getContentPane().add(jButtonLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Matrícula:");
@@ -216,6 +221,14 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 101, 190, -1));
+
+        jButtonLancarNotas1.setText("Lançar N1");
+        jButtonLancarNotas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLancarNotas1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonLancarNotas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,6 +263,25 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jTableLancarNotasMouseClicked
+
+    private void jButtonLancarNotas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLancarNotas1ActionPerformed
+  
+       double n1 = Double.parseDouble(txtN1.getText());
+       
+       
+        Boletim b = new Boletim();
+       BoletimDAO bDAO = new BoletimDAO();
+       
+       
+      // b.setIdAluno(Integer.parseInt(txtMatricula.getText()));
+     //  b.setNota1(n1);
+        //int itemSelecionado= (int) jComboBoxDisciplinas.getSelectedItem();
+      // b.setIdDisciplina(Integer.parseInt(txtMatricula.getText()));
+         Object itemSelecionado= jComboBoxDisciplinas.getSelectedItem();
+       // System.out.println(itemSelecionado);
+       // bDAO.create(b);
+        
+    }//GEN-LAST:event_jButtonLancarNotas1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,9 +323,10 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     private javax.persistence.Query columnStatsQuery;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButtonLancarNotas;
+    private javax.swing.JButton jButtonLancarNotas1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JComboBox jComboBoxDisciplinas;
+    private javax.swing.JComboBox<Object> jComboBoxDisciplinas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -303,6 +336,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLancarNotas;
+    private java.awt.TextArea textArea1;
     private javax.swing.JTextField txtAluno;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtN1;

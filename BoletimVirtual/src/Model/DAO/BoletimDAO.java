@@ -7,6 +7,7 @@ package Model.DAO;
 
 import Connection.ConnectionFactory;
 import Model.bean.Aluno;
+import Model.bean.Boletim;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,4 +58,37 @@ public class BoletimDAO {
         return alunos;
 
     }
+        
+      public void create(Boletim b) {
+        
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("INSERT INTO boletim (id_aluno, id_disciplina, nota1, nota2, media)VALUES(?,?,?,?,?)");
+            //stmt.setInt(1,a.getMatricula());
+            stmt.setInt(1, b.getIdAluno());
+            stmt.setInt(2, b.getIdDisciplina());
+            stmt.setDouble(3, b.getNota1());
+            stmt.setDouble(4, b.getNota2());
+            stmt.setDouble(5, b.getMedia());
+                                   
+
+            stmt.executeUpdate();
+              
+
+            JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso!");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        
+    }
+
+
+
+
+
 }
