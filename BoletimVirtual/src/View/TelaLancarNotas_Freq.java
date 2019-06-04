@@ -15,6 +15,7 @@ import Model.bean.Curso;
 import Model.bean.Disciplina;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -33,14 +34,17 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         
           DefaultTableModel modelo = (DefaultTableModel) jTableLancarNotas.getModel();
         jTableLancarNotas.setRowSorter(new TableRowSorter(modelo));
+         
+        DefaultTableModel modelo1 = (DefaultTableModel) tblDisciplinas.getModel();
+        tblDisciplinas.setRowSorter(new TableRowSorter(modelo1));
 
         readJTable();
-         
-         preencherComboBox();
+         readJTableDisciplinas();
+         //preencherComboBox();
          
          
     }
- public void preencherComboBox(){
+ /*public void preencherComboBox(){
         
      DiciplinaDAO d = new DiciplinaDAO();
         
@@ -56,7 +60,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         }
     
        
-    }
+    }*/
      public void readJTable(){
        DefaultTableModel modelo = (DefaultTableModel) jTableLancarNotas.getModel();
        modelo.setNumRows(0);
@@ -73,6 +77,24 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
          
          
         }
+     
+         public void readJTableDisciplinas(){
+       DefaultTableModel modelo1 = (DefaultTableModel) tblDisciplinas.getModel();
+       modelo1.setNumRows(0);
+       DiciplinaDAO dDAO = new DiciplinaDAO();
+        
+        for(Disciplina d: dDAO.read()){
+            
+           modelo1.addRow(new Object[]{
+               d.getId(),
+               d.getNome()
+                          
+           });
+        }
+         
+         
+        }
+     
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -84,22 +106,25 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         columnStatsQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM ColumnStats c");
         columnStatsList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : columnStatsQuery.getResultList();
         textArea1 = new java.awt.TextArea();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLancarNotas = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabelLancarnotas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBoxDisciplinas = new javax.swing.JComboBox<Object>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtN1 = new javax.swing.JTextField();
         txtN2 = new javax.swing.JTextField();
-        jButtonLancarNotas = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtMatricula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtAluno = new javax.swing.JTextField();
-        jButtonLancarNotas1 = new javax.swing.JButton();
+        btnLancarNotas = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDisciplinas = new javax.swing.JTable();
+        txtNomeDisciplina = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtIdDisciplina = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
@@ -107,7 +132,11 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/View Lançar Notas 3.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -116,11 +145,11 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
             },
             new String [] {
-                "MATRICULA", " ALUNO", "NOTA N1", "NOTA N2", "MÉDIA"
+                "MATRICULA", " ALUNO"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -139,96 +168,98 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableLancarNotas);
         if (jTableLancarNotas.getColumnModel().getColumnCount() > 0) {
-            jTableLancarNotas.getColumnModel().getColumn(2).setHeaderValue("NOTA N1");
-            jTableLancarNotas.getColumnModel().getColumn(3).setHeaderValue("NOTA N2");
-            jTableLancarNotas.getColumnModel().getColumn(4).setHeaderValue("MÉDIA");
+            jTableLancarNotas.getColumnModel().getColumn(0).setPreferredWidth(90);
+            jTableLancarNotas.getColumnModel().getColumn(0).setMaxWidth(336);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 538, 211));
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
-
-        jLabelLancarnotas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelLancarnotas.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLancarnotas.setText("LANÇAR NOTAS");
-        jLabelLancarnotas.setToolTipText("");
-        jLabelLancarnotas.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jLabelLancarnotas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jLabelLancarnotas)
-                .addGap(19, 19, 19))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 460, 170));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Disciplinas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 129, 67, 19));
-
-        jComboBoxDisciplinas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxDisciplinasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBoxDisciplinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 156, 260, -1));
+        jLabel1.setText("SELECIONE UMA DISCIPLINA ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 200, 19));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("N1:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("N2:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, 20));
 
         txtN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtN1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 140, 23));
+        getContentPane().add(txtN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 140, 30));
 
         txtN2.setMinimumSize(new java.awt.Dimension(6, 24));
         txtN2.setPreferredSize(new java.awt.Dimension(6, 24));
-        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 140, -1));
-
-        jButtonLancarNotas.setText("Lançar N2");
-        getContentPane().add(jButtonLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
+        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Matrícula:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 72, -1, -1));
-        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 101, 56, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 90, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Aluno:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 72, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
 
         txtAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAlunoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 101, 190, -1));
+        getContentPane().add(txtAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 300, 30));
 
-        jButtonLancarNotas1.setText("Lançar N1");
-        jButtonLancarNotas1.addActionListener(new java.awt.event.ActionListener() {
+        btnLancarNotas.setText("Lançar N1");
+        btnLancarNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLancarNotas1ActionPerformed(evt);
+                btnLancarNotasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLancarNotas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+        getContentPane().add(btnLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, -1, 30));
+
+        tblDisciplinas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "DISCIPLINA"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tblDisciplinas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDisciplinasMouseClicked(evt);
+            }
+        });
+        tblDisciplinas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblDisciplinasKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblDisciplinas);
+        if (tblDisciplinas.getColumnModel().getColumnCount() > 0) {
+            tblDisciplinas.getColumnModel().getColumn(0).setPreferredWidth(60);
+            tblDisciplinas.getColumnModel().getColumn(0).setMaxWidth(668);
+        }
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 460, 170));
+        getContentPane().add(txtNomeDisciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        getContentPane().add(txtIdDisciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/View Lançar Notas final.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -240,10 +271,6 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     private void txtAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlunoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAlunoActionPerformed
-
-    private void jComboBoxDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDisciplinasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxDisciplinasActionPerformed
 
     private void jTableLancarNotasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableLancarNotasKeyReleased
          if (jTableLancarNotas.getSelectedRow() != -1) {
@@ -264,26 +291,46 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableLancarNotasMouseClicked
 
-    private void jButtonLancarNotas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLancarNotas1ActionPerformed
-  
+    private void btnLancarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancarNotasActionPerformed
+    
+        if (Double.parseDouble (txtN1.getText())<=10 && Double.parseDouble (txtN2.getText())<=10){ 
        double n1 = Double.parseDouble(txtN1.getText());
        
        
         Boletim b = new Boletim();
        BoletimDAO bDAO = new BoletimDAO();
-       
-       
-      // b.setIdAluno(Integer.parseInt(txtMatricula.getText()));
-     //  b.setNota1(n1);
-        //int itemSelecionado= (int) jComboBoxDisciplinas.getSelectedItem();
-      // b.setIdDisciplina(Integer.parseInt(txtMatricula.getText()));
-         Object itemSelecionado= jComboBoxDisciplinas.getSelectedItem();
-       // System.out.println(itemSelecionado);
-       // bDAO.create(b);
         
-    }//GEN-LAST:event_jButtonLancarNotas1ActionPerformed
+       b.setIdAluno((int) jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(), 0));
+       b.setIdDisciplina((int) tblDisciplinas.getValueAt(tblDisciplinas.getSelectedRow(), 0) );
+       b.setNota1(Double.parseDouble(txtN1.getText()));
+       b.setNota2(Double.parseDouble(txtN2.getText()));
+     
+        bDAO.create(b);
+        }else{
+             JOptionPane.showMessageDialog(null, "Valor invalido, Digite notas ate 10 pontos!"); 
+        }
+          
+         
+    }//GEN-LAST:event_btnLancarNotasActionPerformed
 
-    /**
+    private void tblDisciplinasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblDisciplinasKeyReleased
+         if (tblDisciplinas.getSelectedRow() != -1) {
+
+            txtIdDisciplina.setText(tblDisciplinas.getValueAt(jTableLancarNotas.getSelectedRow(), 0).toString());
+           
+        }
+    }//GEN-LAST:event_tblDisciplinasKeyReleased
+
+    private void tblDisciplinasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDisciplinasMouseClicked
+       if (tblDisciplinas.getSelectedRow() != -1) {
+
+            txtIdDisciplina.setText(tblDisciplinas.getValueAt(tblDisciplinas.getSelectedRow(),0 ).toString());
+            txtNomeDisciplina.setText(tblDisciplinas.getValueAt(tblDisciplinas.getSelectedRow(),1 ).toString());
+           
+
+        }
+    }//GEN-LAST:event_tblDisciplinasMouseClicked
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -319,27 +366,30 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLancarNotas;
     private java.util.List<View.ColumnStats> columnStatsList;
     private javax.persistence.Query columnStatsQuery;
     private javax.persistence.EntityManager entityManager;
-    private javax.swing.JButton jButtonLancarNotas;
-    private javax.swing.JButton jButtonLancarNotas1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JComboBox<Object> jComboBoxDisciplinas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabelLancarnotas;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableLancarNotas;
+    private javax.swing.JTable tblDisciplinas;
     private java.awt.TextArea textArea1;
     private javax.swing.JTextField txtAluno;
+    private javax.swing.JLabel txtIdDisciplina;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtN1;
     private javax.swing.JTextField txtN2;
+    private javax.swing.JLabel txtNomeDisciplina;
     // End of variables declaration//GEN-END:variables
 }
