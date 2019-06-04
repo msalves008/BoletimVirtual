@@ -66,12 +66,12 @@ public class BoletimDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO boletim (id_aluno, id_disciplina, nota1, nota2)VALUES(?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO boletim (id_aluno, id_disciplina, nota1)VALUES(?,?,?)");
             //stmt.setInt(1,a.getMatricula());
             stmt.setInt(1, b.getIdAluno());
             stmt.setInt(2, b.getIdDisciplina());
             stmt.setDouble(3, b.getNota1());
-            stmt.setDouble(4, b.getNota2());
+           // stmt.setDouble(4, b.getNota2());
             //stmt.setDouble(5, b.getMedia());
                                    
 

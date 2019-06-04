@@ -184,7 +184,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("N2:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, -1, 20));
 
         txtN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,7 +195,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         txtN2.setMinimumSize(new java.awt.Dimension(6, 24));
         txtN2.setPreferredSize(new java.awt.Dimension(6, 24));
-        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 140, 30));
+        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Matrícula:");
@@ -219,7 +219,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                 btnLancarNotasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, -1, 30));
+        getContentPane().add(btnLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, -1, 30));
 
         tblDisciplinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -293,7 +293,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
     private void btnLancarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancarNotasActionPerformed
     
-        if (Double.parseDouble (txtN1.getText())<=10 && Double.parseDouble (txtN2.getText())<=10){ 
+        if (Double.parseDouble (txtN1.getText())<=10 ){ 
        double n1 = Double.parseDouble(txtN1.getText());
        
        
@@ -303,7 +303,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
        b.setIdAluno((int) jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(), 0));
        b.setIdDisciplina((int) tblDisciplinas.getValueAt(tblDisciplinas.getSelectedRow(), 0) );
        b.setNota1(Double.parseDouble(txtN1.getText()));
-       b.setNota2(Double.parseDouble(txtN2.getText()));
+       //b.setNota2(Double.parseDouble(txtN2.getText()));
      
         bDAO.create(b);
         }else{
