@@ -124,6 +124,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         txtNomeDisciplina = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtIdDisciplina = new javax.swing.JLabel();
+        Logo = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem2.setSelected(true);
@@ -151,9 +152,16 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTableLancarNotas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,9 +240,16 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tblDisciplinas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,8 +273,11 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
         getContentPane().add(txtIdDisciplina, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo DP.png"))); // NOI18N
+        getContentPane().add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/View Lançar Notas final.png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -366,6 +384,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Logo;
     private javax.swing.JButton btnLancarNotas;
     private java.util.List<View.ColumnStats> columnStatsList;
     private javax.persistence.Query columnStatsQuery;

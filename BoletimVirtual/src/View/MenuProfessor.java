@@ -28,43 +28,14 @@ public class MenuProfessor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnAtualizar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         btnSair = new javax.swing.JButton();
         btnCadastar = new javax.swing.JButton();
         btnLancarNota_Frec = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 204));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("NewsGoth Lt BT", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("SEJA BEM-VINDO");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel1)
-                .addContainerGap(128, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 100));
 
         btnAtualizar.setBackground(new java.awt.Color(255, 255, 255));
         btnAtualizar.setText("ATUALIZA/EDITAR DADOS");
@@ -73,22 +44,7 @@ public class MenuProfessor extends javax.swing.JFrame {
                 btnAtualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 200, 40));
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 362, -1, 30));
+        getContentPane().add(btnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 200, 40));
 
         btnSair.setBackground(new java.awt.Color(255, 255, 255));
         btnSair.setText("SAIR");
@@ -97,7 +53,7 @@ public class MenuProfessor extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 200, 40));
+        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 200, 40));
 
         btnCadastar.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastar.setText("CADASTRAR NOVO ALUNO");
@@ -106,7 +62,7 @@ public class MenuProfessor extends javax.swing.JFrame {
                 btnCadastarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadastar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, 40));
+        getContentPane().add(btnCadastar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 200, 40));
 
         btnLancarNota_Frec.setBackground(new java.awt.Color(255, 255, 255));
         btnLancarNota_Frec.setText("LANÇAR NOTA/FREQUÊNCIA");
@@ -115,12 +71,10 @@ public class MenuProfessor extends javax.swing.JFrame {
                 btnLancarNota_FrecActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLancarNota_Frec, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 200, 40));
+        getContentPane().add(btnLancarNota_Frec, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 200, 40));
 
-        jLabel2.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel2.setText("SELECIONE A OPÇÃO DESEJADA ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fundo menu professor.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,9 +144,6 @@ public class MenuProfessor extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastar;
     private javax.swing.JButton btnLancarNota_Frec;
     private javax.swing.JButton btnSair;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
