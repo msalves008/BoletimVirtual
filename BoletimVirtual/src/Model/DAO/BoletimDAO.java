@@ -66,7 +66,7 @@ public class BoletimDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO boletim (id_aluno, id_disciplina, nota1)VALUES(?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO boletim (id_aluno, id_disciplina, nota1, nota2)VALUES(?,?,?,0)");
             //stmt.setInt(1,a.getMatricula());
             stmt.setInt(1, b.getIdAluno());
             stmt.setInt(2, b.getIdDisciplina());
@@ -86,7 +86,34 @@ public class BoletimDAO {
         }
         
     }
+      
+    public void AddNota2(Boletim b) {
+        
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
 
+        try {
+            stmt = con.prepareStatement("UPDATE boletim SET nota2 = ? WHERE id_aluno = ? and id_disciplina =?");
+            // stmt = con.prepareStatement("UPDATE tbl_aluno SET nome = ? ,endereco = ?,nome_da_mae = ?, nome_do_pai =?, celular = ?, cpf =? WHERE id = ?");
+            stmt.setDouble(1, b.getNota2());
+            stmt.setInt(2, b.getIdAluno());
+            stmt.setInt(3, b.getIdDisciplina());
+            //stmt.setDouble(3, b.getNota1());
+       
+            //stmt.setDouble(5, b.getMedia());                                 
+
+            stmt.executeUpdate();              
+
+            JOptionPane.showMessageDialog(null, "Notas lançadas com sucesso!");
+        } catch (SQLException ex) {
+            //System.out.println(ex);
+            JOptionPane.showMessageDialog(null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        
+    }
 
 
 

@@ -125,7 +125,10 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtIdDisciplina = new javax.swing.JLabel();
         Logo = new javax.swing.JLabel();
+        btnLancarNotasN2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        btnLancarNotas2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
@@ -188,22 +191,22 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("N1:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("N2:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, -1, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, 20));
 
         txtN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtN1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 140, 30));
+        getContentPane().add(txtN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 140, 30));
 
         txtN2.setMinimumSize(new java.awt.Dimension(6, 24));
         txtN2.setPreferredSize(new java.awt.Dimension(6, 24));
-        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 140, 30));
+        getContentPane().add(txtN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Matrícula:");
@@ -227,7 +230,7 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
                 btnLancarNotasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, -1, 30));
+        getContentPane().add(btnLancarNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, 30));
 
         tblDisciplinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -276,8 +279,27 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/logo DP.png"))); // NOI18N
         getContentPane().add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
 
+        btnLancarNotasN2.setText("Lançar N2");
+        btnLancarNotasN2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLancarNotasN2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLancarNotasN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, -1, 30));
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/View Lançar Notas final.png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 670));
+
+        btnLancarNotas2.setText("Lançar N1");
+        btnLancarNotas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLancarNotas2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLancarNotas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, -1, 30));
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -327,8 +349,12 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
         }else{
              JOptionPane.showMessageDialog(null, "Valor invalido, Digite notas ate 10 pontos!"); 
         }
-          
-         
+        // Limpando Campos
+        txtN1.setText("");
+        txtAluno.setText("");
+        txtMatricula.setText("");
+        txtIdDisciplina.setText(""); 
+        txtNomeDisciplina.setText(""); 
     }//GEN-LAST:event_btnLancarNotasActionPerformed
 
     private void tblDisciplinasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblDisciplinasKeyReleased
@@ -348,6 +374,35 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_tblDisciplinasMouseClicked
+
+    private void btnLancarNotasN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancarNotasN2ActionPerformed
+         if (Double.parseDouble (txtN2.getText())<=10 ){ 
+       //double n1 = Double.parseDouble(txtN1.getText());
+       
+       
+        Boletim b = new Boletim();
+       BoletimDAO bDAO = new BoletimDAO();
+        
+       b.setIdAluno((int) jTableLancarNotas.getValueAt(jTableLancarNotas.getSelectedRow(), 0));
+       b.setIdDisciplina((int) tblDisciplinas.getValueAt(tblDisciplinas.getSelectedRow(), 0) );
+       b.setNota2(Double.parseDouble(txtN2.getText()));
+       //b.setNota2(Double.parseDouble(txtN2.getText()));
+     
+        bDAO.AddNota2(b);
+        }else{
+             JOptionPane.showMessageDialog(null, "Valor invalido, Digite notas ate 10 pontos!"); 
+        }
+         // Limpando Campos
+        txtN2.setText("");
+        txtAluno.setText("");
+        txtMatricula.setText("");
+        txtIdDisciplina.setText(""); 
+        txtNomeDisciplina.setText("");
+    }//GEN-LAST:event_btnLancarNotasN2ActionPerformed
+
+    private void btnLancarNotas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLancarNotas2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLancarNotas2ActionPerformed
         /**
      * @param args the command line arguments
      */
@@ -386,9 +441,12 @@ public class TelaLancarNotas_Freq extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
     private javax.swing.JButton btnLancarNotas;
+    private javax.swing.JButton btnLancarNotas2;
+    private javax.swing.JButton btnLancarNotasN2;
     private java.util.List<View.ColumnStats> columnStatsList;
     private javax.persistence.Query columnStatsQuery;
     private javax.persistence.EntityManager entityManager;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
