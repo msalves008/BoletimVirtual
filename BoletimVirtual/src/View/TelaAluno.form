@@ -50,15 +50,8 @@
         <Component class="javax.swing.JTable" name="jTableResultado">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="6">
-                <Column editable="true" title="DISCIPLINAS" type="java.lang.String">
-                  <Data value="ARQ. DE COMPUTADORES"/>
-                  <Data value="C&#xc1;LCULO"/>
-                  <Data value="NGL&#xca;S "/>
-                  <Data value="LEGISLA&#xc7;&#xc3;O "/>
-                  <Data value="MTC"/>
-                  <Data value="POO"/>
-                </Column>
+              <Table columnCount="5" rowCount="0">
+                <Column editable="true" title="DISCIPLINAS" type="java.lang.String"/>
                 <Column editable="true" title="NOTA N1" type="java.lang.Double"/>
                 <Column editable="true" title="NOTA N2" type="java.lang.Double"/>
                 <Column editable="true" title="M&#xc9;DIA" type="java.lang.Double"/>
@@ -104,17 +97,7 @@
     <Component class="javax.swing.JTextField" name="txtMatricula">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="120" y="290" width="90" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtAluno">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAlunoActionPerformed"/>
-      </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="290" y="290" width="340" height="30"/>
+          <AbsoluteConstraints x="120" y="310" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -124,17 +107,20 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="300" width="-1" height="-1"/>
+          <AbsoluteConstraints x="50" y="320" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelAluno">
+    <Component class="javax.swing.JButton" name="btnGerarRelatorio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ALUNO"/>
+        <Property name="text" type="java.lang.String" value="GERAR RELAT&#xd3;RIO "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGerarRelatorioActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="230" y="300" width="-1" height="-1"/>
+          <AbsoluteConstraints x="230" y="310" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

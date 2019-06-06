@@ -32,9 +32,8 @@ public class TelaAluno extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableResultado = new javax.swing.JTable();
         txtMatricula = new javax.swing.JTextField();
-        txtAluno = new javax.swing.JTextField();
         jLabelMatricula = new javax.swing.JLabel();
-        jLabelAluno = new javax.swing.JLabel();
+        btnGerarRelatorio = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/view aluno.png"))); // NOI18N
@@ -45,12 +44,7 @@ public class TelaAluno extends javax.swing.JFrame {
 
         jTableResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"ARQ. DE COMPUTADORES", null, null, null, null},
-                {"CÁLCULO", null, null, null, null},
-                {"NGLÊS ", null, null, null, null},
-                {"LEGISLAÇÃO ", null, null, null, null},
-                {"MTC", null, null, null, null},
-                {"POO", null, null, null, null}
+
             },
             new String [] {
                 "DISCIPLINAS", "NOTA N1", "NOTA N2", "MÉDIA", "RESULTADO"
@@ -67,20 +61,18 @@ public class TelaAluno extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableResultado);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 690, 140));
-        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 90, 30));
-
-        txtAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAlunoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 340, 30));
+        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 90, 30));
 
         jLabelMatricula.setText("MATRICULA");
-        getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
-        jLabelAluno.setText("ALUNO");
-        getContentPane().add(jLabelAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        btnGerarRelatorio.setText("GERAR RELATÓRIO ");
+        btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarRelatorioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGerarRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/view aluno.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -88,9 +80,9 @@ public class TelaAluno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlunoActionPerformed
+    private void btnGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAlunoActionPerformed
+    }//GEN-LAST:event_btnGerarRelatorioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,13 +121,12 @@ public class TelaAluno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGerarRelatorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelAluno;
     private javax.swing.JLabel jLabelMatricula;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableResultado;
-    private javax.swing.JTextField txtAluno;
     private javax.swing.JTextField txtMatricula;
     // End of variables declaration//GEN-END:variables
 }
