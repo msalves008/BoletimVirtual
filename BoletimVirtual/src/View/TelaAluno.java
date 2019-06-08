@@ -5,6 +5,14 @@
  */
 package View;
 
+import Model.DAO.AlunoDAO;
+import Model.DAO.BoletimDAO;
+import Model.bean.Aluno;
+import Model.bean.Usuario;
+import java.util.List;
+import Model.bean.Boletim;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author MATHEUS1
@@ -16,7 +24,43 @@ public class TelaAluno extends javax.swing.JFrame {
      */
     public TelaAluno() {
         initComponents();
+        setTitle("Resultados"); /* Difinindo Titlo para o JFrame*/
          setLocationRelativeTo( null );
+         
+          DefaultTableModel modelo = (DefaultTableModel) jTableResultado.getModel();
+        jTableResultado.setRowSorter(new TableRowSorter(modelo));
+        
+        //carregarBoletim();
+    }
+    
+    private Usuario usuario = new Usuario();
+    
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
+        carregarBoletim();
+    }
+    
+    BoletimDAO dao = new BoletimDAO();
+    
+    public void carregarBoletim(){
+        //List<Boletim> boletins = dao.read(usuario.getIdAluno());
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTableResultado.getModel();
+          modelo.setNumRows(0);
+        //BoletimDAO bDAO = new BoletimDAO();
+        System.out.println("gerando boletim aluno: "+usuario.getIdAluno());
+          System.out.println(usuario.getIdAluno());
+          
+        for(Boletim b: dao.read(usuario.getIdAluno())){
+            
+           modelo.addRow(new Object[]{
+               b.getIdDisciplina(),
+               b.getNota1(),
+               b.getNota2(),
+               b.getMedia(),
+               b.getMedia()
+           });
+        }
     }
 
     /**
@@ -33,7 +77,7 @@ public class TelaAluno extends javax.swing.JFrame {
         jTableResultado = new javax.swing.JTable();
         txtMatricula = new javax.swing.JTextField();
         jLabelMatricula = new javax.swing.JLabel();
-        btnGerarRelatorio = new javax.swing.JButton();
+        btnGerarBoletim = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/view aluno.png"))); // NOI18N
@@ -66,13 +110,13 @@ public class TelaAluno extends javax.swing.JFrame {
         jLabelMatricula.setText("MATRICULA");
         getContentPane().add(jLabelMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
-        btnGerarRelatorio.setText("GERAR RELATÓRIO ");
-        btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        btnGerarBoletim.setText("GERAR BOLETIM ");
+        btnGerarBoletim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGerarRelatorioActionPerformed(evt);
+                btnGerarBoletimActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGerarRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, 30));
+        getContentPane().add(btnGerarBoletim, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/view aluno.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -80,9 +124,9 @@ public class TelaAluno extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarRelatorioActionPerformed
+    private void btnGerarBoletimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarBoletimActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGerarRelatorioActionPerformed
+    }//GEN-LAST:event_btnGerarBoletimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,12 +160,13 @@ public class TelaAluno extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaAluno().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGerarRelatorio;
+    private javax.swing.JButton btnGerarBoletim;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelMatricula;

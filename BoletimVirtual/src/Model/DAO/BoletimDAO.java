@@ -25,6 +25,45 @@ import javax.swing.JOptionPane;
 public class BoletimDAO {
        //Fazendo leitua da tabela do banco de dados
       
+    public List<Boletim> read(int idAluno) {
+
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Boletim> boletins = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM boletim where id_aluno like ? ");
+           stmt.setInt(1, '%'+idAluno+'%');
+            
+            //stmt = con.prepareStatement("SELECT * FROM tbl_aluno ORDER BY nome ASC");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Boletim boletim = new Boletim();
+                boletim.setId(0);
+                boletim.setIdAluno(1);
+                boletim.setIdDisciplina(2);
+                boletim.setNota1(3);
+                boletim.setNota2(4);
+                boletim.setMedia(5);
+                
+                boletins.add(boletim);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return boletins;
+
+    }
+    
     public List<Aluno> read() {
 
         Connection con = ConnectionFactory.getConnection();

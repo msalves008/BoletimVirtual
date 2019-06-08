@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -42,6 +44,11 @@ public class UsuarioDAO {
                 
                 check = true;
             }
+            
+            if(check){
+                List<Usuario> usuarios = readNome(nomeUsuario);
+                System.out.println(usuarios.get(0).getIdAluno());
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,6 +59,46 @@ public class UsuarioDAO {
         return check;
 
     }
+    
+    public List<Usuario> readNome(String nomeUsuario){
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Usuario> usuarios = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM usuario where nomeUsuario like ?  ORDER BY nomeUsuario ASC");
+            stmt.setString(1, '%'+nomeUsuario+'%');
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Usuario usuario = new Usuario();
+
+                usuario.setId(rs.getInt("id"));
+                usuario.setNome(rs.getString("nomeUsuario"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setIdAluno(rs.getInt("idaluno"));
+                
+                
+               usuarios.add(usuario);
+                
+            }
+JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Falha ao Buscar ......!");
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return usuarios;
+
+    }
+    
     public void create(Usuario u){
         
          Connection con = ConnectionFactory.getConnection();

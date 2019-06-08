@@ -11,7 +11,7 @@ package Model.bean;
  */
 public class Usuario {
     private String nome ,cpf , endereco , login, senha;
-    private int id;
+    private int id, idAluno;
 
     public int getId() {
         return id;
@@ -20,6 +20,15 @@ public class Usuario {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getIdAluno() {
+        return idAluno;
+    }
+
+    public void setIdAluno(int idAluno) {
+        this.idAluno = idAluno;
+    }
+    
     
     
     public String getNome() {

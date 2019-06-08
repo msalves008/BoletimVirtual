@@ -7,8 +7,10 @@
 package View;
 
 import Model.DAO.UsuarioDAO;
+import Model.bean.Usuario;
 import javax.swing.JOptionPane;
 import View.LoginProfessor;
+import java.util.List;
 
 /**
  *
@@ -176,12 +178,32 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   private String login;
+    UsuarioDAO dao = new UsuarioDAO();    
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        
+     
+        
      if(checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()))){
          //JOptionPane.showMessageDialog(null,"Good Job, Your username and your password is correct." ); /*Subistuir está linha pelo o codico da proxima tela*/
+         
+         List<Usuario> usuarios = dao.readNome(this.login);
+         
+         for(Usuario u: dao.readNome(this.login))
+             System.out.println(u.getIdAluno());
+         
+         System.out.println(usuarios.size());
          TelaAluno tela = new TelaAluno();
+            //System.out.println(usuarios.get(0).getNome());
+            //System.out.println("passou aqui");
+            
+            for(Usuario u: dao.readNome(this.login)){
+                tela.setUsuario(u);
+                System.out.println("for: "+u.getIdAluno());
+            }
+            
+            
+            
             tela.setVisible(true);
             dispose(); /*Esta linha fecha a janela de Login*/
          
@@ -191,8 +213,9 @@ public class Login extends javax.swing.JFrame {
      } 
 
     }//GEN-LAST:event_btnEntrarActionPerformed
-             UsuarioDAO dao = new UsuarioDAO();    
-    private boolean checkLogin(String login , String senha){               
+            
+    private boolean checkLogin(String login , String senha){
+        this.login = login;
         return dao.checkLogin(login, senha);
         
        /* return login.equals("matheus") && senha.equals("123")
