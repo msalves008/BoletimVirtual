@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 public class BoletimDAO {
        //Fazendo leitua da tabela do banco de dados
     Boletim b = new Boletim();
-    public List<Boletim> readById() {
+    public List<Boletim> readById(int id) {
 
         Connection con = ConnectionFactory.getConnection();
         
@@ -36,7 +36,7 @@ public class BoletimDAO {
 
         try {
            // stmt = con.prepareStatement("SELECT * FROM boletim where id_aluno = "+b.getIdAluno()+" ");
-            stmt = con.prepareStatement("SELECT * FROM boletim where id_aluno = 2");
+            stmt = con.prepareStatement("SELECT * FROM boletim where id_aluno = "+id);
            //stmt.setInt(1, '%'+b.getIdAluno()+'%');
             //stmt.setInt(1, a.getId()); 
             //stmt = con.prepareStatement("SELECT * FROM tbl_aluno ORDER BY nome ASC");

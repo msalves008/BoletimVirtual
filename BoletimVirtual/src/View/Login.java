@@ -186,14 +186,16 @@ public class Login extends javax.swing.JFrame {
         
      if(checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()))){
          //JOptionPane.showMessageDialog(null,"Good Job, Your username and your password is correct." ); /*Subistuir está linha pelo o codico da proxima tela*/
-         
+         TelaAluno tela = new TelaAluno();
          List<Usuario> usuarios = dao.readNome(this.login);
          
-         for(Usuario u: dao.readNome(this.login))
-             System.out.println(u.getIdAluno());
+         for(Usuario u: dao.readNome(this.login)){
+             System.out.println("id: "+u.getIdAluno());
+             tela.setUsuario(u);
+         }
          
-         System.out.println(usuarios.size());
-         TelaAluno tela = new TelaAluno();
+         System.out.println("size: "+usuarios.size());
+        
             //System.out.println(usuarios.get(0).getNome());
             //System.out.println("passou aqui");
             

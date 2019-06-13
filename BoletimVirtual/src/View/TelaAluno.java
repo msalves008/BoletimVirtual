@@ -15,7 +15,8 @@ import javax.swing.table.TableRowSorter;
  */
 public class TelaAluno extends javax.swing.JFrame {
  BoletimDAO dao = new BoletimDAO();
-
+ private Usuario usuario = new Usuario();
+ 
     public TelaAluno() {
         initComponents();
         setTitle("Resultados"); /* Definindo Titlo para o JFrame*/
@@ -24,16 +25,21 @@ public class TelaAluno extends javax.swing.JFrame {
           DefaultTableModel modelo = (DefaultTableModel) jTableResultado.getModel();
           jTableResultado.setRowSorter(new TableRowSorter(modelo));
         
+          
         //carregarBoletim();
     }
     
-    private Usuario usuario = new Usuario();
     
-    /*public void setUsuario(Usuario usuario){
+   
+    
+    public void setUsuario(Usuario usuario){
         this.usuario = usuario;
-        carregarBoletim();
+        System.out.println("id: "+usuario.getIdAluno());
+        txtMatricula.setText(usuario.getIdAluno()+"");
+        txtMatricula.disable();
+        ///carregarBoletim();
     }
-    
+    /*
     BoletimDAO dao = new BoletimDAO();
     
     public void carregarBoletim(){
@@ -127,7 +133,10 @@ public class TelaAluno extends javax.swing.JFrame {
           DefaultTableModel modelo = (DefaultTableModel) jTableResultado.getModel();
           modelo.setNumRows(0);
                 
-        for(Boletim b: dao.readById()){
+          
+          System.out.println(id);
+          
+        for(Boletim b: dao.readById(id)){
             
            modelo.addRow(new Object[]{
                b.getIdDisciplina(),
