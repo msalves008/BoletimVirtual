@@ -24,8 +24,8 @@ import javax.swing.JOptionPane;
  */
 public class BoletimDAO {
        //Fazendo leitua da tabela do banco de dados
-      
-    public List<Boletim> read(int idAluno) {
+    Boletim b = new Boletim();
+    public List<Boletim> readById() {
 
         Connection con = ConnectionFactory.getConnection();
         
@@ -35,24 +35,26 @@ public class BoletimDAO {
         List<Boletim> boletins = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM boletim where id_aluno like ? ");
-           stmt.setInt(1, '%'+idAluno+'%');
-            
+           // stmt = con.prepareStatement("SELECT * FROM boletim where id_aluno = "+b.getIdAluno()+" ");
+            stmt = con.prepareStatement("SELECT * FROM boletim where id_aluno = 2");
+           //stmt.setInt(1, '%'+b.getIdAluno()+'%');
+            //stmt.setInt(1, a.getId()); 
             //stmt = con.prepareStatement("SELECT * FROM tbl_aluno ORDER BY nome ASC");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
                 Boletim boletim = new Boletim();
-                boletim.setId(0);
-                boletim.setIdAluno(1);
-                boletim.setIdDisciplina(2);
-                boletim.setNota1(3);
-                boletim.setNota2(4);
-                boletim.setMedia(5);
+                boletim.setId(rs.getInt("id"));
+                boletim.setIdAluno(rs.getInt("id_aluno"));
+                boletim.setIdDisciplina(rs.getInt("id_disciplina"));
+                boletim.setNota1(rs.getDouble("nota1"));
+                boletim.setNota2(rs.getDouble("nota2"));
+                boletim.setMedia(rs.getDouble("media"));
                 
                 boletins.add(boletim);
             }
+            System.out.println("passei aqui S2");
 
         } catch (SQLException ex) {
             Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);

@@ -47,7 +47,7 @@ public class UsuarioDAO {
             
             if(check){
                 List<Usuario> usuarios = readNome(nomeUsuario);
-                System.out.println(usuarios.get(0).getIdAluno());
+               // System.out.println(usuarios.get(0).getIdAluno());
             }
 
         } catch (SQLException ex) {
@@ -87,7 +87,7 @@ public class UsuarioDAO {
                usuarios.add(usuario);
                 
             }
-JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
+//JOptionPane.showMessageDialog(null, "Busca realizada com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(AlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Falha ao Buscar ......!");

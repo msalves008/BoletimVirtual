@@ -197,10 +197,10 @@ public class Login extends javax.swing.JFrame {
             //System.out.println(usuarios.get(0).getNome());
             //System.out.println("passou aqui");
             
-            for(Usuario u: dao.readNome(this.login)){
-                tela.setUsuario(u);
+            /*for(Usuario u: dao.readNome(this.login)){
+                //tela.setUsuario(u);
                 System.out.println("for: "+u.getIdAluno());
-            }
+            }*/
             
             
             
